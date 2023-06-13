@@ -79,7 +79,7 @@ class Game(arcade.View):
         self.lives_smesh = 0
         self.collision = False
 
-        self.heart = arcade.load_texture(":resources:/images/tiles/stone.png")
+        self.heart = arcade.load_texture("heart.png")
         self.live_used = False
 
         # Создание игрока
@@ -145,7 +145,7 @@ class Game(arcade.View):
         # создание дополнительного сердца на карте
         self.scene.add_sprite_list('LifePlus')
         for i in self.listHeart:
-            serdce = arcade.Sprite(":resources:/images/tiles/stone.png", center_x=i[0], center_y=i[1], scale=0.4)
+            serdce = arcade.Sprite("heart.png", center_x=i[0], center_y=i[1], scale=0.4)
             self.scene.add_sprite('LifePlus', serdce)
 
         #  Создание шипов
@@ -200,7 +200,7 @@ class Game(arcade.View):
         # Отрисовка сердец, скорости, координат
         for i in range(1, self.live+1):
             arcade.draw_texture_rectangle(center_x=self.player.center_x-34+i*17-self.lives_smesh,
-                                          center_y=self.player.center_y+40, width=20,height=20,texture=self.heart)
+                                          center_y=self.player.center_y+60, width=20,height=20,texture=self.heart)
             arcade.draw_text(f'x={round(self.player.center_x)}\n y={round(self.player.center_y)} \n speed {self.player.player_speed} px/un',
                              self.player.center_x-WIDTH/2+20, self.player.center_y-100, arcade.color.BLACK, font_size=9)
             try:
